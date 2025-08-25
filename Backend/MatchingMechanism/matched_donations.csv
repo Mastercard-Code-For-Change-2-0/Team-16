@@ -1,0 +1,5 @@
+demand_id,donation_id,item,matched_quantity,demand_location,donation_location,date_matched
+M001,D001,Canned Food,30,City A,City A,2025-08-25
+M002,D002,Blankets,15,City B,City B,2025-08-25
+M003,D003,Water Bottles,70,City A,City A,2025-08-25
+M005,D005,Clothing,25,City B,City B,2025-08-25

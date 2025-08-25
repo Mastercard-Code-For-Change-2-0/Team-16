@@ -1,0 +1,6 @@
+donation_id,item,quantity,donor_name,location,date
+D001,Canned Food,50,John Doe,City A,2025-08-20
+D002,Blankets,20,Jane Smith,City B,2025-08-21
+D003,Water Bottles,100,Peter Jones,City A,2025-08-20
+D004,First Aid Kits,10,Mary Brown,City C,2025-08-22
+D005,Clothing,30,David Lee,City B,2025-08-21
