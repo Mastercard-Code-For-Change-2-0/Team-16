@@ -1,41 +1,47 @@
-import csv
+import pandas as pd
 
-def match_donations_to_demands(donations_file, demands_file, output_file):
-    donations = []
-    with open(donations_file, 'r', newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            donations.append(row)
+def perform_matching(donations_file, demands_file):
+    donations_df = pd.read_csv(donations_file)
+    demands_df = pd.read_csv(demands_file)
 
-    demands = []
-    with open(demands_file, 'r', newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            demands.append(row)
+    matched_records = []
 
-    matches = []
-    # A simple example: find donations that can fulfill a demand
-    # This logic will need to be adapted for your specific criteria
-    for demand in demands:
-        for donation in donations:
-            if demand['ItemType'] == donation['ItemType'] and int(donation['Quantity']) >= int(demand['NeededQuantity']):
-                matches.append({
-                    "DemandID": demand['DemandID'],
-                    "DonationID": donation['DonationID'],
-                    "ItemType": demand['ItemType'],
-                    "MatchedQuantity": min(int(demand['NeededQuantity']), int(donation['Quantity'])),
-                    "DemandLocation": demand['Location']
-                })
-                # You might want to "consume" the donation quantity here
-                # For simplicity, this example doesn't update quantities
+    # Iterate through each demand
+    for index_demand, demand in demands_df.iterrows():
+        item_needed = demand['item']
+        quantity_needed = demand['quantity_needed']
+        location_demand = demand['location']
 
-    # Write the matches to a new CSV file
-    fieldnames = ['DemandID', 'DonationID', 'ItemType', 'MatchedQuantity', 'DemandLocation']
-    with open(output_file, 'w', newline='') as outfile:
-        writer = csv.DictWriter(outfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for match in matches:
-            writer.writerow(match)
+        # Find suitable donations
+        suitable_donations = donations_df[
+            (donations_df['item'] == item_needed) &
+            (donations_df['location'] == location_demand) &
+            (donations_df['quantity'] > 0) # Ensure donation has remaining quantity
+        ].sort_values(by='date') # Prioritize older donations
 
-# Example Usage:
-match_donations_to_demands('donations.csv', 'demands.csv', 'matched_pairs.csv')
+        for index_donation, donation in suitable_donations.iterrows():
+            if quantity_needed <= 0:
+                break # Demand is fully met
+
+            donation_quantity_available = donation['quantity']
+            quantity_to_match = min(quantity_needed, donation_quantity_available)
+
+            matched_records.append({
+                'demand_id': demand['demand_id'],
+                'donation_id': donation['donation_id'],
+                'item': item_needed,
+                'matched_quantity': quantity_to_match,
+                'demand_location': location_demand,
+                'donation_location': donation['location'],
+                'date_matched': pd.to_datetime('today').strftime('%Y-%m-%d')
+            })
+
+            # Update quantities
+            donations_df.at[index_donation, 'quantity'] -= quantity_to_match
+            quantity_needed -= quantity_to_match
+
+    return pd.DataFrame(matched_records)
+
+# Example usage:
+matched_df = perform_matching('donations.csv', 'demands.csv')
+matched_df.to_csv('matched_donations.csv', index=False)

@@ -1,0 +1,6 @@
+demand_id,item,quantity_needed,recipient_organization,location,urgency
+M001,Canned Food,30,Community Shelter,City A,High
+M002,Blankets,15,Homeless Outreach,City B,Medium
+M003,Water Bottles,70,Disaster Relief,City A,High
+M004,Medical Supplies,5,Local Clinic,City C,High
+M005,Clothing,25,Refugee Support,City B,Medium
