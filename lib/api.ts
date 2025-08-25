@@ -107,18 +107,22 @@ export const api = {
   },
 
   async register(userData: Partial<User>): Promise<{ user: User; token: string }> {
-    // Simulate API call to POST /api/auth/register
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    return {
-      user: {
-        _id: Math.random().toString(),
-        ...userData,
-        verified: false,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-      } as User,
-      token: "mock-jwt-token",
+    // Call actual API endpoint
+    const response = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.error || "Registration failed")
     }
+
+    const data = await response.json()
+    return data
   },
 
   // Donations
