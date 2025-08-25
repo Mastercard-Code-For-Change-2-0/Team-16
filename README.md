@@ -1,3 +1,91 @@
 # Team-16
 
-hii we are team-16
+# 🤝 Donation Matching Portal
+
+A platform that connects **donors** and **recipients** by matching donations (items, funds, or services) with real-time needs.
+The system ensures transparency, structured data handling, and efficient matching — powered by a modern architecture.
+
+---
+
+## 🚀 Features
+
+* **User Roles**
+
+  * Donor: Can list donations (items/funds).
+  * Recipient: Can raise requests for required items.
+  * Admin: Approves, monitors, and manages data with enhanced security.
+
+* **Smart Matching**
+
+  * Efficient matching algorithm pairs donations with needs.
+  * Scope for **ML-powered enhancements** in the future.
+
+* **Security**
+
+  * Admin-level **two-factor authentication** for sensitive operations.
+  * Validations to prevent fake or abusive content.
+
+* **Scalability**
+
+  * Designed for large datasets and growing user base.
+  * Cloud-ready architecture.
+
+---
+
+## 📂 Project Structure
+
+```bash
+donation-matching-portal/
+├── docs/              # HLD/LLD, diagrams
+├── database/          # DB schema, migrations, seeds
+└── README.md
+```
+
+---
+
+## 🔐 Future Scope & Impact
+
+* **ML-powered Matching** → Improve accuracy with multilingual support.
+* **Admin Security** → Two-factor authentication.
+* **Content Moderation** → Automated abuse/invalid entry detection.
+* **Scalability** → Cloud-native deployment, integrations with NGOs, gov portals.
+
+---
+
+## ⚙️ Setup Instructions
+
+### Clone the repository
+
+```bash
+git clone https://github.com/YourUsername/donation-matching-portal.git
+cd donation-matching-portal
+```
+
+---
+
+## 🏗️ Architecture
+
+![High Level Architecture](docs/hld-diagram.png)
+*(Place your HLD/LLD diagrams here for clarity)*
+
+---
+
+## 📌 Contribution
+
+Contributions are welcome!
+
+* Fork the repo
+* Create your feature branch
+* Submit a PR
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 🔗 Repository
+
+[GitHub Repository Link](https://github.com/YourUsername/donation-matching-portal)
