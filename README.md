@@ -9,6 +9,11 @@ The system ensures transparency, structured data handling, and efficient matchin
 
 ## 🚀 Features
 
+![1](https://github.com/user-attachments/assets/7fde156c-0522-411e-b869-1fb7d95bcc46)
+![2](https://github.com/user-attachments/assets/fe820168-9870-42ae-a4fe-bf0b5c1d9796)
+![3](https://github.com/user-attachments/assets/915c9561-b71f-4bfe-8b30-0af0fe3b8c2b)
+
+
 * **User Roles**
 
   * Donor: Can list donations (items/funds).
