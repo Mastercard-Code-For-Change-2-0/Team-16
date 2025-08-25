@@ -96,4 +96,4 @@ This project is licensed under the **MIT License**.
 [GitHub Repository Link]((https://github.com/Mastercard-Code-For-Change-2-0/Team-16/blob/main/README.md))
 https://drive.google.com/drive/folders/1n48dFN2mhXOc9ve385ybQVXmIui1zyuZ?usp=drive_link
 
-[Working Prototye] ((https://mastercard2025.netlify.app/login))
+[Working Prototye] ((https://mastercard2025.netlify.app/))
