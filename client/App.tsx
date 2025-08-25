@@ -13,6 +13,8 @@ import DonorDashboard from "./pages/DonorDashboard";
 import ReceiverDashboard from "./pages/ReceiverDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import FAQ from "./pages/FAQ.tsx";
+import Footer from "@/pages/Footer.tsx";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/donor/dashboard" element={<DonorDashboard />} />
           <Route path="/receiver/dashboard" element={<ReceiverDashboard />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/faq" element={<FAQ/>}/>
+          <Route path="/footer" element={<Footer/>}/>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

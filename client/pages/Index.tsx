@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Users, Gift, ArrowRight, CheckCircle, MapPin, Clock, AlertTriangle, User, Home, Phone, Info, Menu } from "lucide-react";
+import { Heart, Users, Gift, ArrowRight, CheckCircle, MapPin, Clock, AlertTriangle, User, Home, Phone, Info, Menu, HandHeart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Request, ItemCategory } from "@shared/api";
@@ -109,10 +109,17 @@ export default function Index() {
             {/* Logo + Website Name */}
             <div className="flex items-center space-x-3">
               <div className="bg-gradient-to-r from-blue-600 to-green-500 p-2 rounded-lg">
-                <Heart className="h-6 w-6 text-white" />
+                <Link to="/">
+                <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F6fd2ab6a19b640de95da58a05ad12a50%2Fab0fe33fd60348a89b1dfbcda37d96e2?format=webp&width=800"
+                    alt="Seva Sahayog Foundation"
+                    className="h-10 w-auto"
+                />
+                </Link>
+
               </div>
               <div>
-                <span className="text-xl font-bold text-gray-900">Revive</span>
+                <span className="text-xl font-bold text-gray-900">Seva Sahayog</span>
                 <span className="hidden sm:inline text-sm text-gray-600 ml-2">Give & Receive with Care</span>
               </div>
             </div>
@@ -160,32 +167,36 @@ export default function Index() {
             {/* Eye-catching banner with helping hands visual */}
             <div className="mb-8 flex justify-center">
               <div className="relative">
-                <div className="text-8xl mb-4">🤝</div>
-                <div className="absolute -top-4 -right-4 text-4xl animate-bounce">💝</div>
+                <div className="text-8xl mb-4"><img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F6fd2ab6a19b640de95da58a05ad12a50%2Fab0fe33fd60348a89b1dfbcda37d96e2?format=webp&width=800"
+                    alt="Seva Sahayog Foundation"
+                    className="h-20 w-auto"
+                /></div>
+                {/*<div className="absolute -top-4 -right-4 text-4xl animate-bounce">💝</div>*/}
               </div>
             </div>
-            
+
             {/* Motivational tagline */}
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               One donation can{" "}
               <span className="text-yellow-300">change a life.</span>
             </h1>
             <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
-              Revive connects generous hearts with those in need. Every act of kindness 
+              Seva Sahayog connects generous hearts with those in need. Every act of kindness
               creates ripples of hope in our community.
             </p>
 
             {/* Call-to-Action buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/register">
-                <Button size="lg" className="text-lg px-8 py-6 bg-yellow-500 text-gray-900 hover:bg-yellow-400 font-semibold">
+                <Button size="lg" className="text-lg px-8 py-6 bg-white text-blue-600 hover:bg-gray-100 font-semibold">
                   <Gift className="mr-2 h-5 w-5" />
                   Donate Now
                 </Button>
               </Link>
               <Link to="/register">
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-blue-600 font-semibold">
-                  <Heart className="mr-2 h-5 w-5" />
+                <Button size="lg" className="text-lg px-8 py-6 bg-white text-blue-600 hover:bg-gray-100 font-semibold">
+                  <HandHeart className="mr-2 h-5 w-5" />
                   Request Help
                 </Button>
               </Link>
@@ -331,7 +342,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              About Revive
+              About Seva Sahayog
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We believe in the power of community. Revive connects those who want to give 
@@ -409,11 +420,13 @@ export default function Index() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="bg-gradient-to-r from-blue-600 to-green-500 p-2 rounded-lg">
-                  <Heart className="h-6 w-6 text-white" />
-                </div>
+                <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F6fd2ab6a19b640de95da58a05ad12a50%2Fab0fe33fd60348a89b1dfbcda37d96e2?format=webp&width=800"
+                    alt="Seva Sahayog Foundation"
+                    className="h-10 w-auto"
+                />
                 <div>
-                  <span className="text-xl font-bold">Revive</span>
+                  <span className="text-xl font-bold">Seva Sahayog</span>
                   <div className="text-sm text-gray-400">Give & Receive with Care</div>
                 </div>
               </div>
@@ -434,7 +447,7 @@ export default function Index() {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white">Help Center</a></li>
                 <li><a href="#contact" className="hover:text-white">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white">FAQ</a></li>
+                <li><a href="/faq" className="hover:text-white">FAQ</a></li>
               </ul>
             </div>
             <div>

@@ -143,7 +143,7 @@ export default function Register() {
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <Heart className="h-8 w-8 text-primary" />
             </div>
-            <h2 className="text-2xl font-bold mb-4">Welcome to GiveShare!</h2>
+            <h2 className="text-2xl font-bold mb-4">Welcome to Seva Sahayog!</h2>
             <p className="text-muted-foreground mb-6">
               Your account has been created successfully. You'll be redirected to your dashboard shortly.
             </p>
