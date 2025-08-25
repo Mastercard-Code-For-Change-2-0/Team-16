@@ -88,20 +88,22 @@ export interface Notification {
 export const api = {
   // Authentication
   async login(email: string, password: string): Promise<{ user: User; token: string }> {
-    // Simulate API call to POST /api/auth/login
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    return {
-      user: {
-        _id: "1",
-        name: "John Doe",
-        email,
-        role: "donor",
-        verified: true,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+    // Call actual API endpoint
+    const response = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      token: "mock-jwt-token",
+      body: JSON.stringify({ email, password }),
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.error || "Login failed")
     }
+
+    const data = await response.json()
+    return data
   },
 
   async register(userData: Partial<User>): Promise<{ user: User; token: string }> {
@@ -127,15 +129,22 @@ export const api = {
   },
 
   async createDonation(donationData: Partial<Donation>): Promise<Donation> {
-    // Simulate API call to POST /api/donations
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    return {
-      _id: Math.random().toString(),
-      ...donationData,
-      status: "available",
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    } as Donation
+    // Call actual API endpoint
+    const response = await fetch("/api/donations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(donationData),
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.error || "Failed to create donation")
+    }
+
+    const data = await response.json()
+    return data.donation
   },
 
   // Requests
